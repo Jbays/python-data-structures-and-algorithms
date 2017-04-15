@@ -5,4 +5,9 @@
 #To search for an item, 
 #start at the beginning of the list and continue searching until either the end of the list is reached or the item is found.
 
-print('hello world')
+myList = [1,4,6,8,10,35,8753,0,-20]
+
+def linearSearch():
+	print myList
+
+linearSearch()
