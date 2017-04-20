@@ -31,10 +31,16 @@ def bubble_sort(list,counter):
 				print list[left_position]
 				print list[right_position]
 
+				#4-19-2017
+				#This is super close to working!
+				#The two neightboring values print themselves out
+				#I have the correct conditional -- when they should swap
+				#Now I just need to get them to swap
+
 				# list[left_position] = list[right_position]
 				# list[right_position] = temp
 
-				return bubble_sort(list,counter)
+				# return bubble_sort(list,counter)
 		except:
 			print "# of required bubble-sorts",counter
 			print "this list should be sorted>>>>>",list
