@@ -13,7 +13,7 @@ myList = [1,4,6,8,10,35,8753,0,-20]
 ##							If match found, prints "winner winner chicken dinner"
 # param0 searchList: The list of values you wish to searchItem
 # param1 searchItem: The item you wish to find
-# returns: If match found, prints "winner winner chicken dinner"
+# returns: If match found, prints winner,winner chickenDinner!
 ##				 Else prints rejection
 
 def linearSearch(aList,searchItem):
