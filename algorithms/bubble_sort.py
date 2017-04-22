@@ -13,8 +13,6 @@ import random
 # 12, 5, 7, 18, 11, 6, 12, 4, 17, 1
 
 def bubble_sort(list,counter):
-	print "here's the input list>>>>>>>>>>", list
-	
 	for num in list:
 
 		left = num
@@ -22,28 +20,20 @@ def bubble_sort(list,counter):
 			right = list[list.index(num)+1]
 			
 			if (left > right):
-				# print "Left is greater than right!  Swap your variables!"
 				counter = counter+1
 				left_position = list.index(left)
 				right_position = list.index(right)
-				temp = left_position
+				
+				temp = list[left_position]
 
-				print list[left_position]
-				print list[right_position]
+				list[left_position] = list[right_position]
+				list[right_position] = temp
 
-				#4-19-2017
-				#This is super close to working!
-				#The two neightboring values print themselves out
-				#I have the correct conditional -- when they should swap
-				#Now I just need to get them to swap
+				print "this list should have shuffled once!", list
+				bubble_sort(list,counter)
 
-				# list[left_position] = list[right_position]
-				# list[right_position] = temp
-
-				# return bubble_sort(list,counter)
 		except:
 			print "# of required bubble-sorts",counter
-			print "this list should be sorted>>>>>",list
 
 sample_list = range(1,17)
 random.shuffle(sample_list)
