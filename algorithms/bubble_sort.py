@@ -7,11 +7,6 @@ import random
 # compares each pair of adjacent items 
 # and swaps them if they are in the wrong order.
 
-# For example, we want to sort the list below:
-
-# 1
-# 12, 5, 7, 18, 11, 6, 12, 4, 17, 1
-
 def bubble_sort(list,counter):
 	for num in list:
 
