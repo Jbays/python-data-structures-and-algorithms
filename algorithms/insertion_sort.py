@@ -10,15 +10,42 @@ import random
 # returns: sorted list
 
 def insertion_sort(list):
+	sorted_list = []
 
-	marker = 0
+	#the first item is always sorted
+	sorted_list.append(list.pop())
+
 
 	for num in list:
-		print num
-		
+		index = len(sorted_list)-1
 
-	
-	# print list
+		if num > sorted_list[index]:
+			print "back of the line!"
+			sorted_list.append(num)
+		else:
+
+
+			for sorted_num in sorted_list:
+				
+				print "this is the number we're trying to sort",num
+				print "this is the number up for comparison>>>",sorted_num
+
+				# 4-23-2017
+				# something about this conditional causes an infinite loop.
+				# not sure what's wrong.  The logic is close to working.
+				
+
+				# if num < sorted_num:
+
+				# 	sorted_list.insert((sorted_list.index(sorted_num)-1),num)
+
+				# marker = sorted_list.index(sorted_num)
+				# print "this is my marker",marker
+				# print sorted_num
+
+	print sorted_list
+	return sorted_list
+		
 
 sample_list = range(1,17)
 random.shuffle(sample_list)
