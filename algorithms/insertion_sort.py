@@ -9,84 +9,68 @@ import random
 # param0 list: An unordered list of values
 # returns: sorted list
 
-def insertion_sort(list,sorted_list):
-	sorted_list = []
+def insertion_sort(sorted_list,list):
 
-	#the first item is always sorted
-	sorted_list.append(list.pop())
+	if len(list) > 0:
+		print "here is the sorted_list",sorted_list
+		print "here is the list",list
+		print "+++++++++++++++++++++++"
 
-	# the first number is automatically put into the sorted_list
+		# the first number is automatically put into the sorted_list
+		if len(sorted_list) == 0:
+			sorted_list.append(list.pop())
+			insertion_sort(sorted_list,list)
+		elif len(sorted_list) > 0:
+			# print "sorted_list:",sorted_list
+			# print "list:",list
+			print "before list",list
+			to_be_sorted = list.pop()
+			print "after  list",list
+			print "to_be_sorted:",to_be_sorted
 
-
-	for to_be_sorted in list:
-		print "this is the number we're trying to sort",to_be_sorted
-		index = len(sorted_list)-1
-
-		if to_be_sorted > sorted_list[index]:
-			print "back of the line!"
-			sorted_list.append(to_be_sorted)
-			list.remove(to_be_sorted)
-			insertion_sort(list)
-
-		else:
-			
-
-			for already_sorted in sorted_list:
-				sorted_index = len(sorted_list)-1
-				
-
-				# print "this is number we're trying to insert>>",to_be_sorted
-				print "compare to_be_sorted against this already_sorted>>>>>",already_sorted
+			print "before sorted_list",sorted_list
+			sorted_list = sort_unsorted_num(to_be_sorted,sorted_list)
+			print "after  sorted_list",sorted_list
 
 
 
-				if to_be_sorted < already_sorted:
-					print "this is the index for the sorted number",sorted_index
-					#eight is less than eleven.
-					#therefore insert before eleven
-					#And to insert before eleven, we must know eleven's index
-					#Then insert before eleven's index
+		
 
-					#This should sort the number we're trying to sort
-					sorted_list.insert(sorted_index,to_be_sorted)
-					list.remove
-					print "this is the list",list
-					print "this is the sorted list",sorted_list
+	else:
+		print "this list should be sorted",sorted_list
+		print "this list should be empty",list
 
-					insertion_sort(list)
+def sort_unsorted_num(num,list):
+	num_is_sorted = False
+	for sorted_num in list:
+		sorted_index = list.index(sorted_num)
+		print sorted_num
+		print sorted_index
+		if num < sorted_num:
+			list.insert(sorted_index,num)
+			num_is_sorted = True
+		break
 
+	if num_is_sorted == False:
+		list.append(num)
 
+	# print list
+	return list
 
-
-
-				# 4-23-2017
-				# something about this conditional causes an infinite loop.
-				# not sure what's wrong.  The logic is close to working.
-				
-				# 4-28-2017
-				# I can visualize this solution implemented with recursion.
-				# Once one instance of sorting has occured,
-				# Remove that number from the original list
-				# And pass both sorted & unsorted list to the original function
-
-			
-
-
-
-				# if to_be_sorted < already_sorted:
-
-				# 	sorted_list.insert((sorted_list.index(already_sorted)-1),to_be_sorted)
-
-				# marker = sorted_list.index(already_sorted)
-				# print "this is my marker",marker
-				# print already_sorted
-
-	print "here is your sorted list>>>>>>",sorted_list
-	return sorted_list
+	# 4-23-2017
+	# something about this conditional causes an infinite loop.
+	# not sure what's wrong.  The logic is close to working.
+		
+	# 4-28-2017
+	# I can visualize this solution implemented with recursion.
+	# Once one instance of sorting has occured,
+	# Remove that number from the original list
+	# And pass both sorted & unsorted list to the original function
 		
 
 sample_list = range(1,17)
 random.shuffle(sample_list)
 print "this is before sorting!",sample_list
+print "+++++++++++++++++++++++"
 
-insertion_sort(sample_list)
+insertion_sort([],sample_list)
