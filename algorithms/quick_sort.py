@@ -16,48 +16,68 @@ import random
 # and then call the quicksort procedure recursively to sort the two partitions, 
 # ie we divide the problem into two smaller ones and conquer by solving the smaller ones.
 
-# name: Quicksort
+
+# name: partition_phase
 # description: 
 # param0 list: An unordered list of values
 # returns: sorted_list 
 
-def Quicksort(list):
-	print "before sorting",list
-	end = list[(len(list)-1)]
-	second = list[1]
+def partition_phase(list):
+	print "partition_phase invoked!"
 
 
-	list.remove(second)
+# name: quicksort
+# description: 
+# param0 list: An unordered list of values
+# returns: sorted_list 
 
-	print "end",end
-	print "second",second
+#the first goal is to partition the list into two lists
+#the last element is chosen as pivot
+#the lefthand list contains all numbers less than the pivot
+#the righthand list contains all numbers greater than the pivot
+#Now move the pivot to its rightful place between the lists
 
+def quicksort(list):
+	print "this is your list",list
+	
+	#two counters i and j
+	#choose the last element in the list as our pivot
+	pivot = list[(len(list)-1)]
 
-	if end < second:
-		# put behind
-		list.append(second)
-	else:
-		# else put in front
-		list.insert((len(list)-1),second)
+	# for number in list:
+	i = -1
+	j = 0
 
-	#Do this process for half the list's length
-	#Now break the list in half.
+	for each_number in list:
 
-	#the first half 
+		if pivot < list[j]:
+			j = j+1
+			print "since pivot is less than list[j], do nothing!"
+		elif pivot > list[j]:
+			print "pivot is greater than list[j], do work!"
+			i = i+1
+			tobeswapped = list[i]
+			print "list[i]>>",list[i]
+			print "list[j]>>",list[j]
+			print "pivot",pivot
 
-	#There is a more generalizable rule at work.
+			list[i] = list[j]
+			list[j] = tobeswapped
+			j = j+1
 
+			print "They should've swapped!",list
 
-	print "after sorting",list
+	print "after everything's said and done>>>",i
+	print list[0:i+1]
 
-
-
+	return list
 
 
 sample_list = range(1,17)
 random.shuffle(sample_list)
 
-Quicksort(sample_list)
+# quicksort(sample_list)
+print quicksort([7,2,1,8,6,3,5,4])
 
 #Additional Notes:
 # Wikipedia - Quick Sort
